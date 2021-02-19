@@ -1,0 +1,27 @@
+{% set id = params.id %}
+{% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
+
+<div class="nhsuk-accordion {%- if params.classes %} {{ params.classes }}{% endif -%}" data-module="nhsuk-accordion" id="{{ id }}"
+{%- if params.attributes %}{%- for attribute, value in params.attributes.items() %} {{attribute}}="{{value}}"{% endfor %}{% endif %}>
+  {% for item in params['items'] %}
+    <div class="nhsuk-accordion__section {% if item.expanded %}nhsuk-accordion__section--expanded{% endif %}">
+      <div class="nhsuk-accordion__section-header">
+        <h{{ headingLevel }} class="nhsuk-accordion__section-heading">
+          <span class="nhsuk-accordion__section-button" id="{{ id }}-heading-{{ loop.index }}">
+            {{ item.heading.html | safe if item.heading.html else item.heading.text }}
+          </span>
+        </h{{ headingLevel }}>
+        {% if item.summary %}
+          {%- if item.summary.html or item.summary.text %}
+            <div class="nhsuk-accordion__section-summary nhsuk-body" id="{{ id }}-summary-{{ loop.index }}">
+              {{ item.summary.html | safe if item.summary.html else item.summary.text }}
+            </div>
+          {% endif -%}
+        {% endif %}
+      </div>
+      <div id="{{ id }}-content-{{ loop.index }}" class="nhsuk-accordion__section-content" aria-labelledby="{{ id }}-heading-{{ loop.index }}">
+        {{ item.content.html | safe if item.content.html else item.content.text }}
+      </div>
+    </div>
+  {% endfor %}
+</div>
