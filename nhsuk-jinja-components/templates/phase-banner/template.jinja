@@ -1,9 +1,9 @@
-{% from "nhsuk-jinja-components/tag/macro.jinja" import govukTag -%}
+{% from "nhsuk-jinja-components/tag/macro.jinja" import nhsukTag -%}
 
 <div class="nhsuk-phase-banner
   {%- if params.classes %} {{ params.classes }}{% endif %}"{% if params.attributes %}{% for attribute, value in params.attributes.items() %} {{ attribute }}="{{ value }}"{% endfor %}{% endif %}>
   <p class="nhsuk-phase-banner__content">
-    {{- govukTag(
+    {{- nhsukTag(
     {
       "text": params.tag.text,
       "html": params.tag.html,
