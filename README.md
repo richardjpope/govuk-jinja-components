@@ -4,7 +4,7 @@ NHS Design System components ported to jinja to use in Flask apps.
 
 Add this line to your requirements.txt
 
-    -e git+https://github.com/richadjpope/nhsuk-jinja-components#egg=nhsuk-jinja-components
+    -e git+https://github.com/richardjpope/nhsuk-jinja-components#egg=nhsuk-jinja-components
 
 Add the following to your Flask factory.py
 
