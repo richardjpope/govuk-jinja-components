@@ -1,10 +1,10 @@
 # govuk-jinja-components
 
-GOVUK Frontend components ported to jinja to use in Flask apps.
+NHS Design System components ported to jinja to use in Flask apps.
 
 Add this line to your requirements.txt
 
-    -e git+https://github.com/digital-land/govuk-jinja-components#egg=govuk-jinja-components
+    -e git+https://github.com/richadjpope/govuk-jinja-components#egg=govuk-jinja-components
 
 Add the following to your Flask factory.py
 
@@ -12,7 +12,7 @@ Add the following to your Flask factory.py
         multi_loader = ChoiceLoader([
             app.jinja_loader,
             PrefixLoader({
-                'govuk-jinja-components': PackageLoader('govuk-jinja-components')
+                'nhsuk-jinja-components': PackageLoader('nhsukuk-jinja-components')
             })
         ])
         app.jinja_loader = multi_loader
